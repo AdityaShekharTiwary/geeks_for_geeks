@@ -4,16 +4,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-
- // } Driver Code Ends
-
-
-//User function Template for C++
-
-// ar[] is the array
-// n is the number of elements in array.
 void print(int ar[], int n)
 {
 
