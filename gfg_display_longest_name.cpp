@@ -4,24 +4,22 @@ using namespace std;
 int main() {
 	int t;
 	cin>>t;
-	string s;
-	while(t--)
-	{
-	    int n,len=0,max=0;
+	while(t--){
+	    string large=" ";
+	    int n;
 	    cin>>n;
-	    for(int i=0;i<n;i++)
-	    {
-	        cin>>s;
+	    string s[n];
+	    for(int i=0;i<n;i++){
+	        cin>>s[i];
 	    }
-	    for(int i=0;i<n;i++)
-	    {
-	        len=s.size();
-	        if(max<len)
-	        {
-	            len=max;
+	    for(int i=0;i<n;i++){
+	        for(int j=0;j<n;j++){
+	            if(s[i].length()<s[j].length()){
+	                large = s[j];
+	            }
 	        }
 	    }
-	    cout<<max<<endl;
+	    cout<<large<<endl;
 	}
 	return 0;
 }
