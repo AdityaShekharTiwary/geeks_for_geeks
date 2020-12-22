@@ -1,40 +1,40 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int main(){
-	int t;
-	cin >> t;
-	while(t--){
-	    string s;
-	    cin >> s;
-	    int cnt=0;
-	    int arr[26];
-	    for(int i=0;i<26;i++)
-	        arr[i]=0;
-	    for(int i=0;i<s.length();i++)
-	        ++arr[s[i]-'a'];
-	    for(int i=0;i<26;i++){
-	        if(arr[i]>0)
-	            ++cnt;
-	    }
-	    int present[26];
-	    for(int i=0;i<26;i++)
-	        present[i]=0;
-	    int l=0;
-	    int k=0;
-	    int mn=s.length();
-	    for(int i=0;i<s.length();i++){
-	        if(present[s[i]-'a']==0)
-	            ++k;
-	        ++present[s[i]-'a'];
-	        if(k==cnt){
-	            while(l<=i && present[s[l]-'a']>1){
-	                --present[s[l]-'a'];
-	                ++l;
-	            }
-	            mn=min(mn,i-l+1);
-	        }
-	    }
-	    cout << mn << endl;
-	}
-	return 0;
+int main()
+ {
+     int MAX=256;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        int pat[MAX]={0};
+        int str[MAX]={0};
+        unordered_set<char>ch;
+        for(int i=0;i<s.size();i++)
+            ch.insert(s[i]);
+        int tsize=ch.size();
+        int ssize=s.size();
+        for(int i=0;i<ssize;i++)
+        {
+            pat[s[i]]=1;
+        }
+        int l=0,r=0,count=0,mn=INT_MAX;
+        for(r=0;r<ssize;r++)
+        {
+            str[s[r]]++;
+            if(pat[s[r]]!=0 and str[s[r]]<=pat[s[r]])
+                count+=1;
+            while(count==tsize)
+            {
+                mn=min(r-l+1,mn);
+                str[s[l]]--;
+                if(str[s[l]]<pat[s[l]])
+                    count--;
+                l++;
+            }
+        }
+        cout<<mn<<endl;
+    }
 }
