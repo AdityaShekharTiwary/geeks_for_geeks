@@ -1,49 +1,28 @@
-// { Driver Code Starts
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
-
- // } Driver Code Ends
-
-
-// Functio to find first smallest positive
-// missing number in the array
-int missingNumber(int arr[], int n) {
-
-    // Your code here
-    int temp=0;
-    sort(arr,arr+n);
-    for(int i=0;i<n;i++)
-    {
-        if(arr[i]==temp+1){
-         temp++;
-        }
-    }
-    return temp+1;
-
-}
-
-// { Driver Code Starts.
-
-int missingNumber(int arr[], int n);
 
 int main() {
 
-    //taking testcases
-    int t;
-    cin>>t;
-    while(t--){
+	int t; cin>>t;
+	while(t-->0){
+    	int n; cin>>n;
+    	int a[n]={0};
 
-        //input number n
-        int n;
-        cin>>n;
-        int arr[n];
+    	int x;
+    	for(int i=0;i<n;i++){
+        	cin>>x;
+        	if(x>0 && x<=n)
+        	    a[x-1]=-1;
+    	}
 
-        //adding elements to the array
-        for(int i=0; i<n; i++)cin>>arr[i];
-
-        //calling missingNumber()
-        cout<<missingNumber(arr, n)<<endl;
+        int i;
+    	for(i=0;i<=n;i++){
+        	if(a[i]==0){
+        	    cout<<i+1<<endl;
+        	    break;
+        	}
+    	}
+    	i==n?cout<<i+1<<endl:cout<<"";
     }
-    return 0;
-}   // } Driver Code Ends
+	return 0;
+}
