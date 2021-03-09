@@ -15,6 +15,7 @@ int main()
         if(arr[i]>=arr[k-1] && arr[i]>0)
             count++;
     }
+    
     cout<<count<<endl;
 
 }
