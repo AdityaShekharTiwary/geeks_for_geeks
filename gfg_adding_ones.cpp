@@ -17,6 +17,8 @@ int main()
             cin>>j;
             a[j]+=1;
         }
+
+
         for(ll i=1;i<n+1;i++){
             a[i]=a[i-1]+a[i];
             cout<<a[i]<<" ";}
